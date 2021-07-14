@@ -111,20 +111,6 @@ class AlienChaseMovementComponent implements MovementComponent {
         // Shoot if the alien is within a ships height above,
         // below, or in line with the player?
         // This could be a hit or a miss
-        if(mShotRandom.nextInt(SHOT_CHANCE) == TAKE_SHOT) {
-            if (Math.abs(playerLocation.y - location.y) < height) {
-                // Is the alien facing the right direction
-                // and close enough to the player
-                if ((facingRight && playerLocation.x > location.x
-                        || !facingRight && playerLocation.x < location.x)
-                        && Math.abs(playerLocation.x - location.x)
-                        < screenWidth) {
-                    // Fire!
-                    alienArrowSpawner.spawnAlienArrow(t);
-                }
-
-            }
-        }
 
         return true;
     }

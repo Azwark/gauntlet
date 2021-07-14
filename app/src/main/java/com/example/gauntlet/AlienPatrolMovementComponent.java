@@ -106,22 +106,6 @@ class AlienPatrolMovementComponent implements MovementComponent {
         // Update the collider
         t.updateCollider();
 
-       // Shoot if the alien within a ships height above,
-        // below, or in line with the player?
-        // This could be a hit or a miss
-        if(mShotRandom.nextInt(SHOT_CHANCE) == TAKE_SHOT) {
-            if (Math.abs(playerLocation.y - loc.y) < height) {
-                // is the alien facing the right direction
-                // and close enough to the player
-                if ((t.getFacingRight() && playerLocation.x > loc.x
-                        || !t.getFacingRight() && playerLocation.x < loc.x)
-                        && Math.abs(playerLocation.x - loc.x) < screenX) {
-                    // Fire!
-                    alienArrowSpawner.spawnAlienArrow(t);
-                }
-
-            }
-        }
 
         return true;
     }
